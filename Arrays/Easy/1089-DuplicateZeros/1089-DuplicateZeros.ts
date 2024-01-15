@@ -3,15 +3,15 @@
     https://leetcode.com/problems/duplicate-zeros/
 */
 function duplicateZeros(arr: number[]): void {
-    let zerosDuplicated = new Array<number>(arr.length);
+    const zerosDuplicated = new Array<number>(arr.length);
     let resultIndex = 0;
-    for (let index of arr.keys()) {
-        zerosDuplicated[resultIndex] = arr[index];
-        if (arr[index] === 0) {
+    for (const i in arr) {
+        zerosDuplicated[resultIndex] = arr[i];
+        if (arr[i] === 0) {
             resultIndex++;
             zerosDuplicated[resultIndex] = 0;
         }
-        arr[index] = zerosDuplicated[index];
+        arr[i] = zerosDuplicated[i];
         resultIndex++;
     }
 };
