@@ -4,11 +4,11 @@
 */
 function sortArrayByParity(nums: number[]): number[] {
     let oddIndex = 0;
-    for (const i in nums) {
+    for (const i of nums.keys()) {
         if (nums[i] % 2 === 0) {
             [nums[oddIndex], nums[i]] = [nums[i], nums[oddIndex]];
             oddIndex++;
         }
     }
     return nums;
-};
+}

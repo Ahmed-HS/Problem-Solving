@@ -25,4 +25,4 @@ function thirdMax(nums: number[]): number {
     }
 
     return thirdMax === -Infinity ? max : thirdMax;
-};
+}

@@ -8,7 +8,7 @@ function findKthLargest(nums: number[], k: number): number {
     k = nums.length - k;
 
     while (start < end) {
-        let pivot = partition(nums, start, end);
+        const pivot = partition(nums, start, end);
         if (pivot < k) {
             start = pivot + 1;
         } else {
@@ -16,7 +16,7 @@ function findKthLargest(nums: number[], k: number): number {
         }
     }
     return nums[k];
-};
+}
 
 function partition(nums: number[], start: number, end: number): number {
 
@@ -30,7 +30,7 @@ function partition(nums: number[], start: number, end: number): number {
             end--;
         }
         if (start <= end) {
-            swap(nums, start, end);
+            swap(start, end, nums);
             start++;
             end--;
         }
@@ -38,6 +38,6 @@ function partition(nums: number[], start: number, end: number): number {
     return end;
 }
 
-function swap(nums: number[], i: number, j: number) {
+function swap(i: number, j: number, nums: number[]) {
     [nums[i], nums[j]] = [nums[j], nums[i]];
 }

@@ -19,7 +19,7 @@ function findDisappearedNumbers(nums: number[]): number[] {
     }
 
     return missingNumbers;
-};
+}
 
 function swap(i: number, j: number, nums: number[]) {
     [nums[i], nums[j]] = [nums[j], nums[i]];

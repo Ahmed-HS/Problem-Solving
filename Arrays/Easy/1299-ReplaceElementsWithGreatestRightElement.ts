@@ -10,4 +10,4 @@ function replaceElements(arr: number[]): number[] {
         max = Math.max(current, max);
     }
     return arr;
-};
+}

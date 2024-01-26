@@ -15,4 +15,4 @@ function findMaxConsecutiveOnes(nums: number[]): number {
         maxOnesCount = Math.max(countWithZero + onesCount, maxOnesCount);
     }
     return maxOnesCount;
-};
+}

@@ -5,7 +5,7 @@
 function duplicateZeros(arr: number[]): void {
     const zerosDuplicated = new Array<number>(arr.length);
     let resultIndex = 0;
-    for (const i in arr) {
+    for (const i of arr.keys()) {
         zerosDuplicated[resultIndex] = arr[i];
         if (arr[i] === 0) {
             resultIndex++;
@@ -14,4 +14,4 @@ function duplicateZeros(arr: number[]): void {
         arr[i] = zerosDuplicated[i];
         resultIndex++;
     }
-};
+}

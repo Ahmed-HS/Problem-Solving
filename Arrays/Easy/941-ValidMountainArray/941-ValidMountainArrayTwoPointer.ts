@@ -16,4 +16,4 @@ function validMountainArray(arr: number[]): boolean {
     }
 
     return left === right && arr.length > 1;
-};
+}

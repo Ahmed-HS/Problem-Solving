@@ -17,4 +17,4 @@ function validMountainArray(arr: number[]): boolean {
         }
     }
     return decreasing;
-};
+}

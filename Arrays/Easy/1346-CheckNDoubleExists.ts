@@ -12,4 +12,4 @@ function checkIfExist(arr: number[]): boolean {
         seenNumbers.add(number);
     }
     return false;
-};
+}

@@ -14,4 +14,4 @@ function duplicateZeros(arr: number[]): void {
             arr[i + shiftCount + 1] = 0;
         }
     }
-};
+}

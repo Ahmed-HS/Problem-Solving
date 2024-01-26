@@ -10,4 +10,4 @@ function findMaxConsecutiveOnes(nums: number[]): number {
         maxOnesCount = Math.max(onesCount, maxOnesCount);
     }
     return maxOnesCount;
-};
+}

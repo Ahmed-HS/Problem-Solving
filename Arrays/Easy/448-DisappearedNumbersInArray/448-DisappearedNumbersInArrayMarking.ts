@@ -15,4 +15,4 @@ function findDisappearedNumbers(nums: number[]): number[] {
         }
     }
     return missingNumbers;
-};
+}

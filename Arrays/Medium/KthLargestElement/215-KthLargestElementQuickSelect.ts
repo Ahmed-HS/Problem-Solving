@@ -19,27 +19,27 @@ function findKthLargest(nums: number[], k: number): number {
         }
     }
     return nums[k];
-};
+}
 
 function partition(nums: number[], start: number, end: number): number {
 
     const randomIndex = Math.floor(Math.random() * (end - start + 1) + start);
-    swap(nums, end, randomIndex);
+    swap(end, randomIndex, nums);
 
     const pivot = nums[end];
     let greaterIndex = start;
     for (let i = start; i < end; i++) {
         if (nums[i] < pivot) {
-            swap(nums, i, greaterIndex);
+            swap(i, greaterIndex, nums);
             greaterIndex++;
         }
     }
 
-    swap(nums, end, greaterIndex);
+    swap(end, greaterIndex, nums);
 
     return greaterIndex;
 }
 
-function swap(nums: number[], i: number, j: number) {
+function swap(i: number, j: number, nums: number[]) {
     [nums[i], nums[j]] = [nums[j], nums[i]];
 }

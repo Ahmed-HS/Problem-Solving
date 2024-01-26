@@ -28,4 +28,4 @@ function heightChecker(heights: number[]): number {
     }
 
     return misplacedCount;
-};
+}
