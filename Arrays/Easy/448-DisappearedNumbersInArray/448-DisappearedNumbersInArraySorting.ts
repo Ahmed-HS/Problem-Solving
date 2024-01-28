@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
-*/
+ * Easy
+ * https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+ */
 function findDisappearedNumbers(nums: number[]): number[] {
 
     const missingNumbers: number[] = [];

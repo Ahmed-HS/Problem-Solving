@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/valid-mountain-array/
-*/
+ * Easy
+ * https://leetcode.com/problems/valid-mountain-array/
+ */
 function validMountainArray(arr: number[]): boolean {
 
     if (arr.length < 3 || arr[0] > arr[1]) {

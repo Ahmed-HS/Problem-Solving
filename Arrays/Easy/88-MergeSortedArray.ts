@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/merge-sorted-array/
-*/
+ * Easy
+ * https://leetcode.com/problems/merge-sorted-array/
+ */
 function merge(nums1: number[], m: number, nums2: number[], n: number): void {
     let i = m - 1;
     let j = n - 1;

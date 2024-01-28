@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/valid-mountain-array/
-*/
+ * Easy
+ * https://leetcode.com/problems/valid-mountain-array/
+ */
 function validMountainArray(arr: number[]): boolean {
 
     let left = 0;

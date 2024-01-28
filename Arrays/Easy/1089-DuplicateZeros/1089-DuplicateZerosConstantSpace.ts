@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/duplicate-zeros/
-*/
+ * Easy
+ * https://leetcode.com/problems/duplicate-zeros/
+ */
 function duplicateZeros(arr: number[]): void {
     let shiftCount = arr.reduce((acc, current) => acc + (current === 0 ? 1 : 0), 0);
     for (let i = arr.length - 1; shiftCount > 0; i--) {

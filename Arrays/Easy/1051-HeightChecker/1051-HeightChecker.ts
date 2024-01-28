@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/height-checker/
-*/
+ * Easy
+ * https://leetcode.com/problems/height-checker/
+ */
 function heightChecker(heights: number[]): number {
     const sortedHeights = [...heights].sort((a, b) => a - b);
     let misplacedCount = 0;

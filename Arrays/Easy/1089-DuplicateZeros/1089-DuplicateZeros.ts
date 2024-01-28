@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/duplicate-zeros/
-*/
+ * Easy
+ * https://leetcode.com/problems/duplicate-zeros/
+ */
 function duplicateZeros(arr: number[]): void {
     const zerosDuplicated = new Array<number>(arr.length);
     let resultIndex = 0;

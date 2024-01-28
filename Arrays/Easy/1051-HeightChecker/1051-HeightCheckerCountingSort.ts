@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/height-checker/
-*/
+ * Easy
+ * https://leetcode.com/problems/height-checker/
+ */
 function heightChecker(heights: number[]): number {
     let maxHeight = 0;
     const heightsFrequency = new Map();

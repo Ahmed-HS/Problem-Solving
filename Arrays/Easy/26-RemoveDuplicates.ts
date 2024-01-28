@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-*/
+ * Easy
+ * https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+ */
 function removeDuplicates(nums: number[]): number {
 
     let duplicateIndex = 1;

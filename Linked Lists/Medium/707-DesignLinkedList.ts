@@ -1,7 +1,7 @@
 /**
-    Medium
-    https://leetcode.com/problems/design-linked-list/
-*/
+ * Medium
+ * https://leetcode.com/problems/design-linked-list/
+ */
 class MyLinkedList {
     length = 0;
     head?: LinkedListNode;

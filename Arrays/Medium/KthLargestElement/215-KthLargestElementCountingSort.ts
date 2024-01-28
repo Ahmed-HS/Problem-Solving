@@ -1,7 +1,7 @@
 /**
-    Medium
-    https://leetcode.com/problems/kth-largest-element-in-an-array/
-*/
+ * Medium
+ * https://leetcode.com/problems/kth-largest-element-in-an-array/
+ */
 function findKthLargest(nums: number[], k: number): number {
 
     const frequency = new Map();

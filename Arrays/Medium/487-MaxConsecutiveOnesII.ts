@@ -1,7 +1,7 @@
 /**
-    Medium
-    https://leetcode.com/problems/max-consecutive-ones-ii/
-*/
+ * Medium
+ * https://leetcode.com/problems/max-consecutive-ones-ii/
+ */
 function findMaxConsecutiveOnes(nums: number[]): number {
     let maxOnesCount = 0;
     let onesCount = 0;

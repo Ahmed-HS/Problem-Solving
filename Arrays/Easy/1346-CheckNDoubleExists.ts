@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/check-if-n-and-its-double-exist/
-*/
+ * Easy
+ * https://leetcode.com/problems/check-if-n-and-its-double-exist/
+ */
 function checkIfExist(arr: number[]): boolean {
     const seenNumbers = new Set();
     for (const number of arr) {

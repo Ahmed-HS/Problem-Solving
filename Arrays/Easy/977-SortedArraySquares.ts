@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/squares-of-a-sorted-array/
-*/
+ * Easy
+ * https://leetcode.com/problems/squares-of-a-sorted-array/
+ */
 function sortedSquares(nums: number[]): number[] {
     const squaredNumbers = new Array(nums.length);
     let left = 0;

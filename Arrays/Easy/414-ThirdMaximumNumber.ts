@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/third-maximum-number/
-*/
+ * Easy
+ * https://leetcode.com/problems/third-maximum-number/
+ */
 function thirdMax(nums: number[]): number {
     let max = -Infinity;
     let secondMax = -Infinity;

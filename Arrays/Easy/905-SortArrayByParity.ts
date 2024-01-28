@@ -1,7 +1,7 @@
 /**
-    Easy
-    https://leetcode.com/problems/sort-array-by-parity/
-*/
+ * Easy
+ * https://leetcode.com/problems/sort-array-by-parity/
+ */
 function sortArrayByParity(nums: number[]): number[] {
     let oddIndex = 0;
     for (const i of nums.keys()) {
