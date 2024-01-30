@@ -40,6 +40,7 @@ class MyLinkedList {
         }
 
         this.length++;
+
         const newNode = new LinkedListNode(val);
 
         if (!previousNode) {
@@ -55,7 +56,7 @@ class MyLinkedList {
     deleteAtIndex(index: number): void {
 
         if (index >= this.length) {
-            return
+            return;
         }
 
         const previousNode = this.getNodeAt(index - 1);
@@ -64,14 +65,14 @@ class MyLinkedList {
             return;
         }
 
+        this.length--;
+
         if (!previousNode) {
             this.head = this.head?.next
             return;
-        } else {
-            previousNode.next = previousNode.next?.next;
         }
 
-        this.length--;
+        previousNode.next = previousNode.next?.next;
     }
 }
 
