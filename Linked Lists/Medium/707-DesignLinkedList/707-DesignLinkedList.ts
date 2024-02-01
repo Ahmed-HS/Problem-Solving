@@ -1,10 +1,12 @@
 /**
  * Medium
  * https://leetcode.com/problems/design-linked-list/
+ * Singly linked list
  */
 class MyLinkedList {
     length = 0;
     head?: LinkedListNode;
+    tail?: LinkedListNode;
     constructor() { }
 
     get(index: number): number {
@@ -24,33 +26,60 @@ class MyLinkedList {
     }
 
     addAtHead(val: number): void {
-        this.addAtIndex(0, val);
+        this.length++;
+        const newNode = new LinkedListNode(val, this.head);
+        if (!this.head) {
+            this.tail = newNode;
+        }
+        this.head = newNode;
     }
 
     addAtTail(val: number): void {
-        this.addAtIndex(this.length, val);
+        this.length++;
+        const newNode = new LinkedListNode(val);
+        if (!this.tail) {
+            this.head = newNode;
+        } else {
+            this.tail.next = newNode;
+        }
+        this.tail = newNode;
     }
 
     addAtIndex(index: number, val: number): void {
 
+        if (index === 0) {
+            return this.addAtHead(val);
+        }
+
+        if (index === this.length) {
+            return this.addAtTail(val);
+        }
+
         const previousNode = this.getNodeAt(index - 1);
 
-        if (index !== 0 && !previousNode) {
+        if (!previousNode) {
             return;
         }
 
         this.length++;
 
         const newNode = new LinkedListNode(val);
+        newNode.next = previousNode.next;
+        previousNode.next = newNode;
+    }
 
-        if (!previousNode) {
-            newNode.next = this.head;
-            this.head = newNode;
+    deleteAtHead(): void {
+
+        if (!this.head) {
             return;
         }
 
-        newNode.next = previousNode.next;
-        previousNode.next = newNode;
+        this.length--;
+        this.head = this.head.next;
+
+        if (!this.head) {
+            this.tail = undefined;
+        }
     }
 
     deleteAtIndex(index: number): void {
@@ -59,18 +88,22 @@ class MyLinkedList {
             return;
         }
 
+        if (index === 0) {
+            this.deleteAtHead();
+            return;
+        }
+
         const previousNode = this.getNodeAt(index - 1);
 
-        if (index !== 0 && !previousNode) {
+        if (!previousNode) {
             return;
+        }
+
+        if (index === this.length - 1) {
+            this.tail = previousNode;
         }
 
         this.length--;
-
-        if (!previousNode) {
-            this.head = this.head?.next
-            return;
-        }
 
         previousNode.next = previousNode.next?.next;
     }
