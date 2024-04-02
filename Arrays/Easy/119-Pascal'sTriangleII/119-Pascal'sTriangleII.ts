@@ -4,7 +4,7 @@
  */
 function getRow(rowIndex: number): number[] {
 	/**
-	 * Generate a row of Pascal's Triangle given index its index.
+	 * Generate a row of Pascal's Triangle given its index.
 	 * The idea is to use the previous row to generate the next row.
 	 * We start with the first row, which is [1].
 	 * Then we iterate from 1 to rowIndex.
