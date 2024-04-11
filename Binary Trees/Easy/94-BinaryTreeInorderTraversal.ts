@@ -8,6 +8,7 @@ function inorderTraversal(root: TreeNode | null): number[] {
 	const toVisit = [];
 	// Start with the root of the tree.
 	let current = root;
+	// While there are left nodes to visit or the right subtree is not empty.
 	while (toVisit.length || current) {
 		// Go to the leftmost node of the current subtree.
 		while (current) {
