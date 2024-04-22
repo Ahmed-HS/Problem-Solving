@@ -7,7 +7,7 @@ function sortArray(numbers: number[]): number[] {
 }
 
 function mergeSort(start: number, end: number, numbers: number[]): number[] {
-	if (start === end) {
+	if (start >= end) {
 		return numbers;
 	}
 	const midpoint = start + Math.trunc((end - start) / 2);
