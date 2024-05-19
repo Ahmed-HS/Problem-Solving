@@ -17,18 +17,18 @@ function quickSort(start: number, end: number, numbers: number[]) {
 }
 
 function partition(start: number, end: number, numbers: number[]): number {
-	const randomIndex = Math.trunc(Math.random() * (end - start + 1)) + start;
+	const randomIndex = Math.floor(Math.random() * (end - start + 1)) + start;
 	swap(start, randomIndex, numbers);
 	const pivot = numbers[start];
-	let greaterThanPivot = start + 1;
-	for (let i = greaterThanPivot; i <= end; i++) {
-		if (numbers[i] < pivot) {
-			swap(i, greaterThanPivot, numbers);
-			greaterThanPivot++;
-		}
+	let left = start + 1;
+	let right = end;
+	while (left <= right) {
+		while (numbers[left] < pivot) left++;
+		while (numbers[right] >= pivot && right > start) right--;
+		if (left < right) swap(left, right, numbers);
 	}
-	swap(start, greaterThanPivot - 1, numbers);
-	return greaterThanPivot - 1;
+	swap(start, right, numbers);
+	return right;
 }
 
 function swap(first: number, second: number, numbers: number[]) {

@@ -8,13 +8,13 @@ function sortArray(numbers: number[]): number[] {
 
 function selectionSort(numbers: number[]): number[] {
 	for (let i = 0; i < numbers.length - 1; i++) {
-		let maxIndex = 0;
-		for (let j = 0; j < numbers.length - i; j++) {
-			if (numbers[j] > numbers[maxIndex]) {
-				maxIndex = j;
+		let minIndex = i;
+		for (let j = i + 1; j < numbers.length; j++) {
+			if (numbers[j] < numbers[minIndex]) {
+				minIndex = j;
 			}
 		}
-		swap(maxIndex, numbers.length - i - 1, numbers);
+		swap(minIndex, i, numbers);
 	}
 	return numbers;
 }
