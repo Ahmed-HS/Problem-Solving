@@ -11,7 +11,7 @@ function closestValue(root: TreeNode | null, target: number): number {
 			closest = root.val;
 		}
 		/**
-		 * If the target is l   ess than the current node's value,
+		 * If the target is less than the current node's value,
 		 * all the nodes in the right subtree are greater than the current node.
 		 * So, searching the right subtree will always give a greater difference.
 		 * Otherwise, the target is greater than the current node's value,
