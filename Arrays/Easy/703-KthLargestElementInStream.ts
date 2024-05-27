@@ -40,62 +40,34 @@ class MyPriorityQueue {
 
 	constructor(numbers: number[]) {
 		this.heap = [...numbers];
-		const lastParentIndex = this.getParentIndex(this.heap.length - 1);
+		const lastParentIndex = this.getParent(this.heap.length - 1);
 		for (let i = lastParentIndex; i >= 0; i--) {
 			this.heapifyDown(i);
 		}
 	}
 
-	private getParentIndex(index: number): number {
-		return Math.trunc((index - 1) / 2);
-	}
-
-	private getLeftChildIndex(index: number): number {
-		return 2 * index + 1;
-	}
-
-	private getRightChildIndex(index: number): number {
-		return 2 * index + 2;
-	}
-
-	private swap(index1: number, index2: number): void {
-		[this.heap[index1], this.heap[index2]] = [
-			this.heap[index2],
-			this.heap[index1],
-		];
-	}
-
 	private heapifyUp(): void {
 		let index = this.heap.length - 1;
-		while (index > 0) {
-			const parentIndex = this.getParentIndex(index);
-			if (this.heap[index] > this.heap[parentIndex]) {
-				break;
-			}
+		while (
+			this.hasParent(index) &&
+			this.heap[index] < this.heap[this.getParent(index)]
+		) {
+			const parentIndex = this.getParent(index);
 			this.swap(index, parentIndex);
 			index = parentIndex;
 		}
 	}
 
 	private heapifyDown(parent: number): void {
-		const leafStart = Math.trunc(this.heap.length / 2);
-		while (parent < leafStart) {
-			const leftChildIndex = this.getLeftChildIndex(parent);
-			const rightChildIndex = this.getRightChildIndex(parent);
-			let smallest = parent;
+		while (this.hasLeftChild(parent)) {
+			let smallest = this.getLeftChild(parent);
 			if (
-				leftChildIndex < this.heap.length &&
-				this.heap[leftChildIndex] < this.heap[smallest]
+				this.hasRightChild(parent) &&
+				this.heap[this.getRightChild(parent)] < this.heap[smallest]
 			) {
-				smallest = leftChildIndex;
+				smallest = this.getRightChild(parent);
 			}
-			if (
-				rightChildIndex < this.heap.length &&
-				this.heap[rightChildIndex] < this.heap[smallest]
-			) {
-				smallest = rightChildIndex;
-			}
-			if (smallest === parent) {
+			if (this.heap[smallest] >= this.heap[parent]) {
 				break;
 			}
 			this.swap(parent, smallest);
@@ -121,5 +93,36 @@ class MyPriorityQueue {
 
 	get size(): number {
 		return this.heap.length;
+	}
+
+	private getLeftChild(parent: number): number {
+		return parent * 2 + 1;
+	}
+
+	private getRightChild(parent: number): number {
+		return parent * 2 + 2;
+	}
+
+	private getParent(child: number): number {
+		return Math.trunc((child - 1) / 2);
+	}
+
+	private hasLeftChild(parent: number): boolean {
+		return this.getLeftChild(parent) < this.heap.length;
+	}
+
+	private hasParent(child: number): boolean {
+		return this.getParent(child) >= 0;
+	}
+
+	private hasRightChild(parent: number): boolean {
+		return this.getRightChild(parent) < this.heap.length;
+	}
+
+	private swap(index1: number, index2: number): void {
+		[this.heap[index1], this.heap[index2]] = [
+			this.heap[index2],
+			this.heap[index1],
+		];
 	}
 }
