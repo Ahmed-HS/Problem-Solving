@@ -7,36 +7,53 @@ function sortArray(numbers: number[]): number[] {
 }
 
 function heapSort(numbers: number[]): number[] {
-	const beforeLeaves = Math.trunc((numbers.length - 2) / 2);
-	for (let i = beforeLeaves; i >= 0; i--) {
-		maxHeapify(i, numbers.length, numbers);
+	const lastParent = getParent(numbers.length - 1);
+	for (let i = lastParent; i >= 0; i--) {
+		maxHeapifyDown(i, numbers.length, numbers);
 	}
 
 	for (let heapSize = numbers.length - 1; heapSize > 0; heapSize--) {
 		swap(0, heapSize, numbers);
-		maxHeapify(0, heapSize, numbers);
+		maxHeapifyDown(0, heapSize, numbers);
 	}
 	return numbers;
 }
 
-function maxHeapify(parent: number, heapSize: number, array: number[]) {
-	const leafStart = Math.trunc(heapSize / 2);
-	while (parent < leafStart) {
-		const left = parent * 2 + 1;
-		const right = parent * 2 + 2;
-		let largest = parent;
-		if (left < heapSize && array[left] > array[largest]) {
-			largest = left;
+function maxHeapifyDown(parent: number, heapSize: number, array: number[]) {
+	while (hasLeftChild(parent, heapSize)) {
+		let largest = getLeftChild(parent);
+		if (
+			hasRightChild(parent, heapSize) &&
+			array[getRightChild(parent)] > array[largest]
+		) {
+			largest = getRightChild(parent);
 		}
-		if (right < heapSize && array[right] > array[largest]) {
-			largest = right;
-		}
-		if (largest === parent) {
+		if (array[parent] >= array[largest]) {
 			break;
 		}
 		swap(parent, largest, array);
 		parent = largest;
 	}
+}
+
+function getLeftChild(parent: number): number {
+	return parent * 2 + 1;
+}
+
+function getRightChild(parent: number): number {
+	return parent * 2 + 2;
+}
+
+function getParent(child: number): number {
+	return Math.trunc((child - 1) / 2);
+}
+
+function hasLeftChild(parent: number, heapSize: number): boolean {
+	return getLeftChild(parent) < heapSize;
+}
+
+function hasRightChild(parent: number, heapSize: number): boolean {
+	return getRightChild(parent) < heapSize;
 }
 
 function swap(first: number, second: number, numbers: number[]) {
