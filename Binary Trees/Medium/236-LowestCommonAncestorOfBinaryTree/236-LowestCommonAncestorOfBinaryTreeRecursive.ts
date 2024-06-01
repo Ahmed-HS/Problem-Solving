@@ -10,7 +10,7 @@ function lowestCommonAncestor(
 	// If the tree is empty, or the root is one of the nodes, return the root
 	if (!root || root === p || root === q) return root;
 
-	// Search for the nodes in the left and right subtrees/
+	// Search for the nodes in the left and right subtrees.
 	const left = lowestCommonAncestor(root.left, p, q);
 	const right = lowestCommonAncestor(root.right, p, q);
 	/**
