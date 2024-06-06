@@ -8,16 +8,13 @@ function serialize(root: TreeNode | null): string {
 	 * in the levels array, using "#" for null nodes.
 	 */
 	const levels = [];
-	const toVisit = [root].filter((node) => node !== null);
+	const toVisit = root ? [root] : [];
 	while (toVisit.length) {
-		const size = toVisit.length;
-		for (let i = 0; i < size; i++) {
-			const node = toVisit.shift();
-			levels.push(node?.val ?? "#");
-			if (!node) continue;
-			const children = [node.left, node.right];
-			toVisit.push(...children);
-		}
+		const node = toVisit.shift();
+		levels.push(node?.val ?? "#");
+		if (!node) continue;
+		const children = [node.left, node.right];
+		toVisit.push(...children);
 	}
 	return levels.join(",");
 }
