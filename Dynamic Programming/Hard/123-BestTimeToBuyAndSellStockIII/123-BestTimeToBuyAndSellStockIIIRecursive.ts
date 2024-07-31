@@ -12,7 +12,7 @@ function maxProfit(prices: number[]): number {
 			return maximumProfit[day][transactionsLeft];
 		}
 		// Choice 1: No transaction today
-		const skip = this.solve(prices, day + 1, transactionsLeft);
+		const skip = maxProfit(day + 1, transactionsLeft);
 
 		// Choice 2: Buy or sell
 		const isBuying = transactionsLeft % 2 === 0;
