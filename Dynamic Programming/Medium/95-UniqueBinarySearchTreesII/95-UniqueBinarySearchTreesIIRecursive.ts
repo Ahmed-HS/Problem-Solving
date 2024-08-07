@@ -14,17 +14,9 @@ function generateTrees(n: number): Array<TreeNode | null> {
 	 * the numbers in the range [i + 1, end].
 	 * We then combine all the possible left and right subtrees pairs with the root to get
 	 * all the possible trees.
-	 * We memoize the results to avoid recomputing the same subtrees.
-	 * The base case is when start > end, in which case we return [null] as there is no tree.
 	 */
-	const seen = new Map<string, Array<TreeNode | null>>();
 	function buildTrees(start: number, end: number): Array<TreeNode | null> {
-		if (start > end) {
-			return [null];
-		}
-		const answerKey = `${start}:${end}`;
-		const savedAnswer = seen.get(answerKey);
-		if (savedAnswer) return savedAnswer;
+		if (start > end) return [null];
 		const answer = [];
 		for (let i = start; i <= end; i++) {
 			const leftSubtrees = buildTrees(start, i - 1);
@@ -36,7 +28,6 @@ function generateTrees(n: number): Array<TreeNode | null> {
 				}
 			}
 		}
-		seen.set(answerKey, answer);
 		return answer;
 	}
 	return buildTrees(1, n);

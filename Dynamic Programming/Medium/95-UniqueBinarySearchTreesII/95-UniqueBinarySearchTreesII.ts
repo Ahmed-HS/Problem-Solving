@@ -33,16 +33,17 @@ function generateTrees(n: number): Array<TreeNode | null> {
 		//We stop at n - length + 1 because we need to have enough numbers to form the subtree.
 		for (let start = 1; start <= n - length + 1; start++) {
 			const end = start + length - 1;
-			for (let i = start; i <= end; i++) {
+			for (let root = start; root <= end; root++) {
 				//If i === start, there is no left subtree.
 				const leftSubtrees =
-					i === start ? [null] : result[start][i - 1];
+					root === start ? [null] : result[start][root - 1];
 				//If i === end, there is no right subtree.
-				const rightSubtrees = i === end ? [null] : result[i + 1][end];
+				const rightSubtrees =
+					root === end ? [null] : result[root + 1][end];
 				for (const left of leftSubtrees) {
 					for (const right of rightSubtrees) {
-						const root = new TreeNode(i, left, right);
-						result[start][end].push(root);
+						const tree = new TreeNode(root, left, right);
+						result[start][end].push(tree);
 					}
 				}
 			}
