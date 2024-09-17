@@ -1,8 +1,8 @@
 /**
  * Easy
- * https://leetcode.com/problems/binary-search/
+ * https://leetcode.com/problems/search-insert-position/
  */
-function search(nums: number[], target: number): number {
+function searchInsert(nums: number[], target: number): number {
 	let start = 0;
 	let end = nums.length - 1;
 	while (start <= end) {
