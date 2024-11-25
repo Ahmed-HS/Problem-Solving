@@ -32,3 +32,7 @@ function search(reader: ArrayReader, target: number): number {
 	}
 	return -1;
 }
+
+interface ArrayReader {
+	get(index: number): number;
+}
