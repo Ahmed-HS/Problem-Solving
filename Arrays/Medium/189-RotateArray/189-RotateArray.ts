@@ -15,12 +15,12 @@ function rotate(nums: number[], k: number): void {
 	let shiftedCount = 0;
 	for (let start = 0; shiftedCount < nums.length; start++) {
 		let current = start;
-		let previousValue = nums[start];
+		let currentValue = nums[start];
 		do {
 			const next = (current + k) % nums.length;
 			const nextValue = nums[next];
-			nums[next] = previousValue;
-			previousValue = nextValue;
+			nums[next] = currentValue;
+			currentValue = nextValue;
 			current = next;
 			shiftedCount++;
 		} while (start !== current);
